@@ -4,7 +4,9 @@
      title="Philosopher’s stone, logo of PostCSS"
      src="http://postcss.github.io/postcss/logo-leftp.svg">
 
-[PostCSS] plugin to unwrap nested rules like how Sass does it.
+[PostCSS] plugin to unwrap nested rules like how Stylis does it (for those migrating from Stylis to PostCSS).
+
+This fork currently works identically to [the original](https://github.com/postcss/postcss-nested), with a [few small differences](#differences-to-postcss-nested).
 
 ```css
 .phone {
@@ -57,6 +59,7 @@ html {
   --font: 16px
 }
 ```
+
 
 Related plugins:
 
@@ -169,3 +172,24 @@ Will be compiled to:
 ```
 
 This is especially useful if you want to export the empty classes with `postcss-modules`.
+
+
+## Differences to postcss-nested
+
+- Nested pseudo-selectors are applied to their parent.
+
+```
+  .one { :hover: { color: red } }
+```
+
+Will be compiled to
+
+```
+  .one:hover { color: red }
+```
+
+This matches the stylis behaviour, instead of the postcss-nested/SASS behaviour, which is to compile to:
+
+```
+  .one :hover { color: red }
+```

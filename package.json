@@ -1,7 +1,7 @@
 {
-  "name": "postcss-nested",
+  "name": "@jayphen/postcss-nested-stylis-compat",
   "version": "4.2.1",
-  "description": "PostCSS plugin to unwrap nested rules like how Sass does it",
+  "description": "PostCSS plugin to unwrap nested rules like how Stylis does it",
   "keywords": [
     "postcss",
     "css",
@@ -12,9 +12,9 @@
   "scripts": {
     "test": "jest --coverage && eslint-ci *.js"
   },
-  "author": "Andrey Sitnik <andrey@sitnik.ru>",
+  "author": "Jayphen Simpson <software@jayphen.com>",
   "license": "MIT",
-  "repository": "postcss/postcss-nested",
+  "repository": "Jayphen/postcss-nested",
   "dependencies": {
     "postcss": "^7.0.21",
     "postcss-selector-parser": "^6.0.2"
