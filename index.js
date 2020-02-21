@@ -47,7 +47,9 @@ function selectors (parent, child) {
       var node = parse(j, child)
       var replaced = replace(node, parentNode)
       if (!replaced) {
-        node.prepend(parser.combinator({ value: ' ' }))
+        if (node.nodes[0].type !== 'pseudo') {
+          node.prepend(parser.combinator({ value: ' ' }))
+        }
         node.prepend(parentNode.clone())
       }
       result.push(node.toString())

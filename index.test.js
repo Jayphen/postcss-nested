@@ -205,6 +205,14 @@ it('handles :host selector case', () => {
   return run(':host { &(:focus) {} }', ':host(:focus) {}')
 })
 
+it('allows pseudo without ampersand', () => {
+  return run('.one { :hover {} }', '.one:hover {}')
+})
+
+it('allows nested pseudos without ampersand', () => {
+  return run('.one { :hover { :focus {} } }', '.one:hover:focus {}')
+})
+
 it('shows clear errors on missed semicolon', () => {
   let css = 'a{\n  color: black\n  @mixin b { }\n}\n'
   expect(() => {
